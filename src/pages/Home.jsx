@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import Helmet from "../components/Helmet/Helmet.jsx";
 
-// import heroImg from "../assets/images/hero.png";
+import heroImg from "../assets/images/hero.png";
 import "../styles/hero-section.css";
 
 import { Link } from "react-router-dom";
@@ -93,7 +93,7 @@ const Home = () => {
   return (
     <Helmet title="Home">
       <section id="hero_section">
-        <div className="h-screen mx-auto bg-[url('src/assets/images/food-wars-4.jpg')] bg-cover pt-[150px] pl-[80px]">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="col-span-1 md:col-span-1">
               <div className="hero__content">
@@ -131,9 +131,9 @@ const Home = () => {
               </div>
             </div>
             <div className="col-span-1 md:col-span-1">
-              {/* <div className="hero__img">
+              <div className="hero__img">
                 <img src={heroImg} alt="hero-img" className="w-full" />
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

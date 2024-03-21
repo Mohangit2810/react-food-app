@@ -1,0 +1,102 @@
+/* Hide the default checkbox */
+.checkContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkContainer {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.7em;
+  width: 1.7em;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.checkmark:hover {
+  box-shadow: inset 17px 17px 16px #b3b3b3, inset -17px -17px 16px #ffffff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkContainer input:checked ~ .checkmark {
+  box-shadow: none;
+  background-color: limegreen;
+  transform: rotateX(360deg);
+}
+
+.checkContainer input:checked ~ .checkmark:hover {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkContainer .checkmark:after {
+  left: 15px;
+  top: 6px;
+  width: 7px;
+  height: 20px;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  box-shadow: 0.1em 0.1em 0em 0 rgba(0, 0, 0, 0.3);
+  transform: rotate(45deg);
+}
+
+.strike-through {
+  position: relative;
+}
+
+.strike-through.example-1::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  top: calc(50% - 2px / 2);
+  background-color: red;
+  transition: 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.strike-through.example-1.packed::after {
+  width: 100%;
+}
+
+.recipe-summary {
+  line-height: 2;
+  font-size: large;
+}
+
+.recipe-summary a {
+  color: #df2020;
+  font-weight: bold;
+}
+
+.similar-card {
+  overflow: visible;
+  height: 235px;
+}

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 import logo from "../../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
@@ -41,16 +41,6 @@ const Header = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
 
-  const [color, setColor] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 90) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-  window.addEventListener("scroll", changeColor);
-
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
 
   const toggleCart = () => {
@@ -77,15 +67,7 @@ const Header = () => {
 
   return (
     <header className="header" ref={headerRef}>
-      <nav
-        id="navScroll"
-        className={
-          color
-            ? "fixed top-0 left-0 w-full bg-[#2C00557d] z-[100] backdrop-filter backdrop-blur-lg"
-            : "fixed top-0 left-0 w-full bg-transparent z-[100]"
-        }
-        tabIndex="0"
-      >
+      <nav className="container">
         <div className="nav__wrapper flex items-center justify-between">
           <div className="logo flex flex-col justify-center items-center gap-2 m-2">
             <img src={logo} alt="logo" />

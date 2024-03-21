@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  background: #2af598;
+  background: #df2020;
   border-radius: 50px;
   position: relative;
 }
@@ -18,7 +18,7 @@
   border-radius: 50%;
   background: var(
     --gradient-2,
-    linear-gradient(90deg, #074e2e 0%, #023a21 100%)
+    linear-gradient(90deg, #520707 0%, #871010 100%)
   );
   border: 0;
   display: inline-block;

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import "../styles/search.css";
+import { Link } from "react-router-dom";
 
 function SearchRecipe({ handleRecipeId }) {
   const [recipeResults, setrecipeResults] = useState([]);
@@ -10,7 +11,7 @@ function SearchRecipe({ handleRecipeId }) {
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${recipeName}&apiKey=${apiKey}&includeInstructions=true`,
+          `https://api.spoonacular.com/recipes/complexSearch?query=${recipeName}&apiKey=${apiKey}&number=12&addRecipeInformation=true`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -28,7 +29,7 @@ function SearchRecipe({ handleRecipeId }) {
 
   return (
     <div>
-      <div className="searchBox mx-auto">
+      <div className="searchBox mx-auto ">
         <input
           className="searchInput"
           type="text"
@@ -36,7 +37,10 @@ function SearchRecipe({ handleRecipeId }) {
           onChange={(e) => setRecipeName(e.target.value)}
           placeholder="Search something"
         />
-        <button className="searchButton" href="#">
+        <button
+          className="searchButton flex justify-center items-center"
+          href="#"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="29"
@@ -105,16 +109,43 @@ function SearchRecipe({ handleRecipeId }) {
         </button>
       </div>
 
-      <ul className="mt-8">
+      <ul className=" container mt-8 mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {recipeResults.map((result, index) => (
-          <li key={index}>
-            {result.title}
-            <img
-              onClick={() => handleRecipeId(result.id)}
-              src={result.image}
-              alt="recipe"
-            />
-          </li>
+          <Link
+            to="/recipePage"
+            key={index}
+            onClick={() => handleRecipeId(result.id)}
+          >
+            <li className="similar-card shadow hover:shadow-2xl">
+              <div className="content">
+                <div className="front">
+                  <div className="img">
+                    <img
+                      className="cover"
+                      src={`https://spoonacular.com/recipeImages/${result.id}-480x360.jpg`}
+                      alt={result.id}
+                    />
+                  </div>
+                  <div className="front-content flex justify-between">
+                    <small className="badge first-letter:uppercase">
+                      {result.dishTypes[0]}
+                    </small>
+                    <div className="description">
+                      <div className="title">
+                        <p className="title">
+                          <strong>{result.title}</strong>
+                        </p>
+                      </div>
+                      <p className="card-footer">
+                        {result.readyInMinutes} Mins &nbsp; | &nbsp;{" "}
+                        {result.servings} Serving
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

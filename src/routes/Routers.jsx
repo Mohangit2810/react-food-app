@@ -33,7 +33,12 @@ const Routers = () => {
         path="/searchRecipe"
         element={<SearchRecipe handleRecipeId={handleRecipeId} />}
       />
-      <Route path="/recipePage" element={<RecipePage recipeId={recipeId} />} />
+      <Route
+        path="/recipePage"
+        element={
+          <RecipePage recipeId={recipeId} handleRecipeId={handleRecipeId} />
+        }
+      />
     </Routes>
   );
 };
