@@ -4,7 +4,7 @@ import CommonSection from "../components/UI/common-section/CommonSection";
 import Helmet from "../components/Helmet/Helmet";
 import "../styles/cart-page.css";
 import { useSelector, useDispatch } from "react-redux";
-import { cartActions } from "../store/shopping-cart/cartSlice";
+import { foodCartActions } from "../store/shopping-cart/cartSlice";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
@@ -65,7 +65,7 @@ const Tr = (props) => {
   const dispatch = useDispatch();
 
   const deleteItem = () => {
-    dispatch(cartActions.deleteItem(id));
+    dispatch(foodCartActions.deleteItem(id));
   };
   return (
     <tr className="border-b border-gray-200">

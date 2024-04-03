@@ -1,40 +1,45 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import "../styles/search.css";
-import { Link } from "react-router-dom";
-
-function SearchRecipe({ handleRecipeId, cuisine }) {
-  const [recipeResults, setrecipeResults] = useState([]);
-  const [recipeName, setRecipeName] = useState("");
+// import ingResults from "../assets/fake-data/groceryResults";
+import GroceryCard from "../components/UI/product-card/GroceryCard";
+function GetGroceries() {
+  const [groceryResults, setgroceryResults] = useState([]);
+  const [groceryName, setGroceryName] = useState(
+    JSON.parse(localStorage.getItem("groceryName")) || "banana"
+  );
   const apiKey = "585107672c1b407e816e2d9fe6e7a271";
   useEffect(() => {
+    localStorage.setItem("groceryName", JSON.stringify(groceryName));
+
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://api.spoonacular.com/recipes/complexSearch?query=${recipeName}&apiKey=${apiKey}&number=12&addRecipeInformation=true&cuisine=${cuisine}`,
+          `https://api.spoonacular.com/food/products/search?query=${groceryName}&apiKey=${apiKey}&number=12`,
           {
             headers: {
               "Content-Type": "application/json",
             },
           }
         );
-        const recipie = await response.json();
-        setrecipeResults(recipie.results);
+        const result = await response.json();
+        console.log(result);
+        setgroceryResults(result.products);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
-  }, [recipeName, cuisine]);
-
+  }, [groceryName]);
+  console.log(groceryName);
   return (
     <div>
       <div className="searchBox mx-auto ">
         <input
           className="searchInput"
           type="text"
-          name="recipeName"
-          onChange={(e) => setRecipeName(e.target.value)}
+          name="groceryName"
+          onChange={(e) => setGroceryName(e.target.value)}
           placeholder="Search something"
         />
         <button
@@ -108,48 +113,13 @@ function SearchRecipe({ handleRecipeId, cuisine }) {
           </svg>
         </button>
       </div>
-
       <ul className=" container mt-8 mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-        {recipeResults.map((result, index) => (
-          <Link
-            to="/recipePage"
-            key={index}
-            onClick={() => handleRecipeId(result.id)}
-          >
-            <li className="similar-card shadow hover:shadow-2xl">
-              <div className="content">
-                <div className="front">
-                  <div className="img">
-                    <img
-                      className="cover"
-                      src={`https://spoonacular.com/recipeImages/${result.id}-480x360.jpg`}
-                      alt={result.id}
-                    />
-                  </div>
-                  <div className="front-content flex justify-between">
-                    <small className="badge first-letter:uppercase">
-                      {result.dishTypes[0]}
-                    </small>
-                    <div className="description">
-                      <div className="title">
-                        <p className="title">
-                          <strong>{result.title}</strong>
-                        </p>
-                      </div>
-                      <p className="card-footer">
-                        {result.readyInMinutes} Mins &nbsp; | &nbsp;{" "}
-                        {result.servings} Serving
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </Link>
+        {groceryResults.map((result, index) => (
+          <GroceryCard result={result} key={index} />
         ))}
       </ul>
     </div>
   );
 }
 
-export default SearchRecipe;
+export default GetGroceries;

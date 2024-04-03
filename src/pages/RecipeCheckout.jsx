@@ -7,17 +7,19 @@ import Helmet from "../components/Helmet/Helmet";
 
 import "../styles/checkout.css";
 
-const Checkout = ({ addShippingInfo }) => {
+function RecipeCheckout({ addShippingInfo }) {
   const [enterName, setEnterName] = useState("");
   const [enterEmail, setEnterEmail] = useState("");
   const [enterNumber, setEnterNumber] = useState("");
   const [enterCountry, setEnterCountry] = useState("");
   const [enterCity, setEnterCity] = useState("");
   const [postalCode, setPostalCode] = useState("");
-
-  const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
+  const cartTotalAmount = useSelector(
+    (state) => state.recipeCart.recipeTotalAmount
+  );
   const shippingCost = 30;
   const history = useNavigate();
+
   const totalAmount = cartTotalAmount + Number(shippingCost);
 
   const submitHandler = (e) => {
@@ -132,6 +134,6 @@ const Checkout = ({ addShippingInfo }) => {
       </section>
     </Helmet>
   );
-};
+}
 
-export default Checkout;
+export default RecipeCheckout;

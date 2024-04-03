@@ -3,44 +3,42 @@
 import "../../../styles/cart-item.css";
 
 import { useDispatch } from "react-redux";
-import { foodCartActions } from "../../../store/shopping-cart/cartSlice";
+import { cartActions } from "../../../store/recipe-cart/recipeCartSlice";
 
-const CartItem = ({ item }) => {
-  const { id, title, price, image01, quantity, totalPrice } = item;
-
+function RecipeCartItem({ item }) {
+  const { id, image, name, price, quantity, totalPrice } = item;
   const dispatch = useDispatch();
+
+  const deleteItem = () => {
+    dispatch(cartActions.deleteItem(id));
+  };
 
   const incrementItem = () => {
     dispatch(
-      foodCartActions.addItem({
+      cartActions.addItem({
         id,
-        title,
+        name,
         price,
-        image01,
+        image,
       })
     );
   };
 
   const decreaseItem = () => {
-    dispatch(foodCartActions.removeItem(id));
+    dispatch(cartActions.removeItem(id));
   };
-
-  const deleteItem = () => {
-    dispatch(foodCartActions.deleteItem(id));
-  };
-
   return (
     <div className="cart__item p-4">
       <div className="cart__item-info flex items-center gap-4">
         <img
-          src={image01}
+          src={`https://img.spoonacular.com/ingredients_500x500/${image}`}
           alt="product-img"
           className="w-16 h-16 object-cover rounded-md"
         />
 
         <div className="cart__product-info flex flex-row w-full justify-between gap-4">
           <div>
-            <h6 className="cart__product-title">{title}</h6>
+            <h6 className="cart__product-title">{name}</h6>
             <p className="flex items-center gap-5 cart__product-price">
               {quantity}x <span>${totalPrice}</span>
             </p>
@@ -68,6 +66,6 @@ const CartItem = ({ item }) => {
       </div>
     </div>
   );
-};
+}
 
-export default CartItem;
+export default RecipeCartItem;

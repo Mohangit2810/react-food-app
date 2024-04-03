@@ -118,8 +118,16 @@ const cartSlice = createSlice({
         state.totalQuantity
       );
     },
+
+    // =========== clear cart ===========
+    clearCart(state) {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+      setItemFunc([], 0, 0);
+    },
   },
 });
 
-export const cartActions = cartSlice.actions;
+export const foodCartActions = cartSlice.actions;
 export default cartSlice;

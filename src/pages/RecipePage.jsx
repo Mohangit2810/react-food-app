@@ -2,16 +2,20 @@
 
 // import fakeRecipe from "../assets/fake-data/recipe";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 // import similarRecipe from "../assets/fake-data/similarRecipe";
 import "../styles/recipePage.css";
 import { Link } from "react-router-dom";
-
+import { cartActions } from "../store/recipe-cart/recipeCartSlice";
 function RecipePage({ recipeId, handleRecipeId }) {
   const [recipeInfo, setRecipeInfo] = useState([]);
   const [instrunctions, setInstrunctions] = useState([]);
   const [ingredientsList, setIngredientsList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [similarRecipes, setSimilarRecipes] = useState([]);
+  const [recipeCardUrl, setRecipeCardUrl] = useState("");
+  const dispatch = useDispatch();
 
   const togglePacked = (id) => {
     setIngredientsList(
@@ -22,6 +26,39 @@ function RecipePage({ recipeId, handleRecipeId }) {
       )
     );
   };
+  const apiKey = "585107672c1b407e816e2d9fe6e7a271";
+  const sendNotPacked = () => {
+    const list = ingredientsList.filter(
+      (ingredient) => ingredient.packed === false
+    );
+    list.map(async function fetchData(item) {
+      try {
+        const response = await fetch(
+          `https://api.spoonacular.com/food/ingredients/${item.id}/information?amount=1&apiKey=${apiKey}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const ingredientInfo = await response.json();
+        const ingPrice = ingredientInfo.estimatedCost;
+        const ingimage = ingredientInfo.image;
+        dispatch(
+          cartActions.addItem({
+            id: item.id,
+            name: item.cleanName,
+            image: ingimage,
+            price: ingPrice.value,
+          })
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    });
+    // handleNotPackedList(list);
+  };
+
   const toggleDone = (id) => {
     setInstrunctions(
       instrunctions.map((instruction) =>
@@ -31,40 +68,6 @@ function RecipePage({ recipeId, handleRecipeId }) {
       )
     );
   };
-
-  const apiKey = "585107672c1b407e816e2d9fe6e7a271";
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.spoonacular.com/recipes/654959/information/?&apiKey=${apiKey}&includeInstruction=true`,
-  //         {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-  //       const recipie = await response.json();
-  //       console.log(recipie);
-  //       setRecipeInfo(recipie);
-  //       setIngredients(recipie.extendedIngredients);
-  //       ingredients.map((ingredient) =>
-  //         setIngredientsList([
-  //           ...ingredientsList,
-  //           {
-  //             id: ingredient.id,
-  //             ingredientName: ingredient.original,
-  //             packed: false,
-  //           },
-  //         ])
-  //       );
-  //       setInstrunctions(recipie.analyzedInstructions[0].steps);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, [ingredients, ingredientsList]);
 
   useEffect(() => {
     async function fetchData() {
@@ -85,15 +88,26 @@ function RecipePage({ recipeId, handleRecipeId }) {
             },
           }
         );
+        const recipeCard = await fetch(
+          `https://api.spoonacular.com/recipes/${recipeId}/card/?&apiKey=${apiKey}&number=4`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const recipie = await response.json();
         const similar = await similarResponse.json();
+        const url = await recipeCard.json();
+        setRecipeCardUrl(url.url);
         setSimilarRecipes(similar);
         setRecipeInfo(recipie);
         const recipeInformation = recipie.extendedIngredients;
         const processedIngredients = recipeInformation.map(
-          ({ id, original }) => ({
+          ({ id, original, nameClean }) => ({
             id,
             ingName: original,
+            cleanName: nameClean,
             packed: false,
           })
         );
@@ -130,6 +144,7 @@ function RecipePage({ recipeId, handleRecipeId }) {
             dangerouslySetInnerHTML={{ __html: recipeInfo.summary }}
           />
           <h2 className="text-left mt-12 mb-6">Ingredients</h2>
+          <div onClick={sendNotPacked}>click here</div>
           <ul className="grid grid-cols-2 gap-4">
             {ingredientsList.map((ingredient, index) => (
               <li className="flex gap-4 items-center justify-start" key={index}>
@@ -154,7 +169,7 @@ function RecipePage({ recipeId, handleRecipeId }) {
             ))}
           </ul>
           <h2 className="mt-12 mb-8">Steps</h2>
-          <ul className="flex flex-col gap-4 mb-24">
+          <ul className="flex flex-col gap-4 mb-12">
             {instrunctions.map((step, index) => (
               <li className="flex gap-4 items-center justify-start" key={index}>
                 <label className="checkContainer">
@@ -177,6 +192,12 @@ function RecipePage({ recipeId, handleRecipeId }) {
               </li>
             ))}
           </ul>
+          <h3 className="my-12 mb-8">
+            Liked the Recipe? Click here to download the Recipe Card !!
+            <a href={recipeCardUrl} target="_blank">
+              click here
+            </a>
+          </h3>
         </div>
         <div className="info-container">
           <h1 className="text-left mb-8">Categories</h1>

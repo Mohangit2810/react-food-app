@@ -6,7 +6,7 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/common-section/CommonSection";
 
 import { useDispatch } from "react-redux";
-import { cartActions } from "../store/shopping-cart/cartSlice";
+import { foodCartActions } from "../store/shopping-cart/cartSlice";
 
 import "../styles/product-details.css";
 
@@ -28,7 +28,7 @@ const FoodDetails = () => {
 
   const addItem = () => {
     dispatch(
-      cartActions.addItem({
+      foodCartActions.addItem({
         id,
         title,
         price,
