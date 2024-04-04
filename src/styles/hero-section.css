@@ -8,13 +8,13 @@
 }
 
 .hero__title span {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .hero__content p {
   font-size: 1rem;
   line-height: 30px;
-  color: #777;
+  color: #fff;
 }
 
 .hero__btns button {
@@ -27,7 +27,7 @@
 }
 
 .order__btn {
-  background: #df2020;
+  background: #ff5f00;
   color: #fff;
   transition: 0.3s;
 }
@@ -37,23 +37,53 @@
 }
 .all__foods-btn {
   background: transparent;
-  border: 1px solid #df2020 !important;
+  border: 1px solid #fff !important;
+}
+
+.all__foods-btn:hover {
+  background-color: #fff;
 }
 
 .all__foods-btn a {
-  color: #df2020;
+  color: #fff;
+}
+.all__foods-btn:hover a {
+  color: #ff5f00;
 }
 
 .hero__service p {
-  color: #212245;
+  color: #fff;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
 .shipping__icon i {
   padding: 5px;
-  background: #df2020;
+  background: #ff5f00;
   color: #fff;
   border-radius: 50%;
   font-weight: 500 !important;
+}
+
+#hero_section {
+  position: relative; /* Ensure the overlay is positioned relative to the container */
+  background-image: url(/src/assets/images/hero-bg.jpg);
+  background-size: cover;
+  height: calc(100vh - 93px);
+}
+
+#hero_section::after {
+  content: ""; /* Required for the pseudo-element to appear */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+}
+
+#hero_section .container {
+  position: relative;
+  z-index: 2; /* Ensure the content appears above the tint */
 }

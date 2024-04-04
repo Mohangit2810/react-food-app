@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 
 import Helmet from "../components/Helmet/Helmet.jsx";
 
-import heroImg from "../assets/images/hero.png";
 import "../styles/hero-section.css";
 
 import { Link } from "react-router-dom";
@@ -92,48 +91,40 @@ const Home = () => {
 
   return (
     <Helmet title="Home">
+      {/* -------------- Hero Section -----------------*/}
       <section id="hero_section">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="col-span-1 md:col-span-1">
-              <div className="hero__content">
-                <h5 className="mb-3">Easy way to make an order</h5>
-                <h1 className="mb-4 hero__title">
-                  <span>HUNGRY?</span> Just wait <br /> food at
-                  <span> your door</span>
-                </h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                  magni delectus tenetur autem, sint veritatis!
-                </p>
-                <div className="hero__btns flex items-center gap-5 mt-4">
-                  <button className="order__btn flex items-center justify-between">
-                    Order now <i className="ri-arrow-right-s-line"></i>
-                  </button>
-                  <button className="all__foods-btn">
-                    <Link to="/foods">See all foods</Link>
-                  </button>
-                </div>
-                <div className="hero__service flex items-center gap-5 mt-5">
-                  <p className="flex items-center gap-2">
-                    <span className="shipping__icon">
-                      <i className="ri-car-line"></i>
-                    </span>{" "}
-                    No shipping charge
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="shipping__icon">
-                      <i className="ri-shield-check-line"></i>
-                    </span>{" "}
-                    100% secure checkout
-                  </p>
-                </div>
-              </div>
+        <div className="container ">
+          <div className="hero__content mx-auto">
+            <h5 className="mb-3 text-white">Easy way to make an order</h5>
+            <h1 className="mb-4 hero__title text-white">
+              <span>HUNGRY?</span> Just wait <br /> food at
+              <span> your door</span>
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
+              magni delectus tenetur autem, sint veritatis!
+            </p>
+            <div className="hero__btns flex items-center gap-5 mt-4">
+              <button className="order__btn flex items-center justify-between">
+                Order now <i className="ri-arrow-right-s-line"></i>
+              </button>
+              <button className="all__foods-btn">
+                <Link to="/foods">See all foods</Link>
+              </button>
             </div>
-            <div className="col-span-1 md:col-span-1">
-              <div className="hero__img">
-                <img src={heroImg} alt="hero-img" className="w-full" />
-              </div>
+            <div className="hero__service flex items-center gap-5 mt-5">
+              <p className="flex items-center gap-2">
+                <span className="shipping__icon">
+                  <i className="ri-car-line"></i>
+                </span>{" "}
+                No shipping charge
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="shipping__icon">
+                  <i className="ri-shield-check-line"></i>
+                </span>{" "}
+                100% secure checkout
+              </p>
             </div>
           </div>
         </div>

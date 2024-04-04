@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect } from "react";
 
-import logo from "../../assets/images/res-logo.png";
+import logo from "../../assets/images/logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -97,10 +97,8 @@ const Header = ({ layout }) => {
     <header className="header" ref={headerRef}>
       <nav className="container">
         <div className="nav__wrapper flex items-center justify-between">
-          <div className="logo flex flex-col justify-center items-center gap-2 m-2">
+          <div className="w-32">
             <img src={logo} alt="logo" />
-
-            <h5>Tasty Treat</h5>
           </div>
 
           {/* ======= menu ======= */}
@@ -121,7 +119,7 @@ const Header = ({ layout }) => {
           </div>
 
           {/* ======== nav right icons ========= */}
-          <div className="nav__right flex items-center gap-4">
+          <div className="nav__right flex items-center justify-center gap-4">
             <span className="cart__icon" onClick={toggleCart}>
               <i className="ri-shopping-basket-line"></i>
               <span className="cart__badge">
