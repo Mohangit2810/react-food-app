@@ -29,11 +29,11 @@
 }
 
 .menu a:hover {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .active__menu {
-  color: #df2020 !important;
+  color: #ff5f00 !important;
 }
 
 .cart__icon i,
@@ -52,7 +52,7 @@
   position: absolute;
   top: -5px;
   right: -10px;
-  background: #df2020;
+  background: #ff5f00;
   color: #fff;
   width: 15px;
   height: 15px;

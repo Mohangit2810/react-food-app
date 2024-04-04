@@ -3,8 +3,8 @@
 }
 
 .hero__title {
-  font-size: 2.5rem;
-  line-height: 55px;
+  font-size: 3.7rem;
+  line-height: 75px;
 }
 
 .hero__title span {
@@ -12,43 +12,9 @@
 }
 
 .hero__content p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 30px;
   color: #fff;
-}
-
-.hero__btns button {
-  border: none;
-  outline: none;
-  padding: 7px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.order__btn {
-  background: #ff5f00;
-  color: #fff;
-  transition: 0.3s;
-}
-
-.order__btn:hover {
-  background: #212245;
-}
-.all__foods-btn {
-  background: transparent;
-  border: 1px solid #fff !important;
-}
-
-.all__foods-btn:hover {
-  background-color: #fff;
-}
-
-.all__foods-btn a {
-  color: #fff;
-}
-.all__foods-btn:hover a {
-  color: #ff5f00;
 }
 
 .hero__service p {

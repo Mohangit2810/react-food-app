@@ -1,7 +1,7 @@
 /*hover effect*/
 .cartButton:hover {
   color: #fff;
-  background-color: rgb(239, 67, 67);
+  background-color: #ef4343;
   box-shadow: rgba(239, 67, 67, 0.5) 0 10px 20px;
   border-radius: 6px;
   transition: all 0.3s ease-in-out;
@@ -16,8 +16,8 @@
 /*hover effect*/
 .popButton:hover {
   color: #fff;
-  background-color: rgb(124, 32, 32);
-  box-shadow: rgba(124, 32, 32, 0.5) 0 10px 20px;
+  background-color: #7c2020;
+  box-shadow: #7c202080 0 10px 20px;
   border-radius: 6px;
   transform: translateY(-3px);
   transition: all 0.2s ease-in-out;
@@ -29,11 +29,11 @@
 }
 
 .feature__subtitle {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .feature__title span {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .feature__text {
@@ -45,7 +45,7 @@
 }
 
 .food__category {
-  background: #df2020;
+  background: #ff5f00;
   text-align: center;
   margin-top: 30px;
   padding: 20px 0px;
@@ -68,11 +68,11 @@
 .foodBtnActive {
   background: #fff !important;
   border-radius: 5px;
-  color: #df2020 !important;
+  color: #ff5f00 !important;
 }
 
 .tasty__treat-title span {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .tasty__treat-desc {
@@ -87,7 +87,7 @@
 
 .choose__us-title i {
   font-weight: 500 !important;
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .choose__us-desc {
@@ -95,11 +95,11 @@
 }
 
 .testimonial__subtitle {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .testimonial__title span {
-  color: #df2020;
+  color: #ff5f00;
 }
 
 .testimonial__desc {

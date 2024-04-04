@@ -1,4 +1,4 @@
-import logo from "../../assets/images/res-logo.png";
+// import logo from "../../assets/images/logo.png";
 
 import "../../styles/footer.css";
 
@@ -6,15 +6,14 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white">
+    <footer className="bg-[#ff5f00] text-white">
       <div className="container mx-auto py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-start">
-            <img src={logo} alt="logo" className="w-16 h-16 mb-4" />
-            <h5 className="text-lg font-bold">Tasty Treat</h5>
+            {/* <img src={logo} alt="logo" className="w-32 h-32 mb-4" /> */}
+            <h5 className="text-lg font-bold mb-6">Feastify</h5>
             <p className="text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-              pariatur accusamus
+              Order food from your favorite restaurants with the Feastify app.
             </p>
           </div>
 
@@ -35,10 +34,8 @@ const Footer = () => {
           <div>
             <h5 className="text-lg font-bold mb-4">Contact</h5>
             <ul>
-              <li className="mb-2">
-                Location: ZindaBazar, Sylhet-3100, Bangladesh
-              </li>
-              <li className="mb-2">Phone: 01712345678</li>
+              <li className="mb-2">Location: O Block, New York-2343, USA</li>
+              <li className="mb-2">Phone: +12 3456789009</li>
               <li>Email: example@gmail.com</li>
             </ul>
           </div>
@@ -51,7 +48,7 @@ const Footer = () => {
                 type="email"
                 placeholder="Enter your email"
                 name="newsletter_email"
-                className="w-full py-2 px-3 rounded-lg border border-gray-500 focus:outline-none focus:border-blue-500"
+                className="w-full text-black py-2 px-3 rounded-lg border border-gray-500 focus:outline-none focus:border-blue-500"
               />
               <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
                 Subscribe
@@ -62,7 +59,7 @@ const Footer = () => {
 
         <div className="mt-8 flex justify-between">
           <p className="text-sm">
-            Copyright - 2022, website made by Muhibur Rahman. All Rights
+            Copyright - 2077, website made by Satou Kazuma. All Rights are not
             Reserved.
           </p>
           <div className="flex gap-4">
