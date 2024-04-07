@@ -23,8 +23,8 @@ const nav__links = [
     path: "/cart",
   },
   {
-    display: "Contact",
-    path: "/contact",
+    display: "Cook",
+    path: "/start",
   },
 ];
 
@@ -45,21 +45,13 @@ const recipeLinks = [
     display: "Get Ingredients",
     path: "/getIngredients",
   },
-  // {
-  //   display: "Get Groceries",
-  //   path: "/getGroceries",
-  // },
   {
     display: "Recipe Cart",
     path: "/recipeCart",
   },
-  {
-    display: "Contact",
-    path: "/contact",
-  },
 ];
 
-const Header = ({ layout }) => {
+const Header = ({ layout, setStart }) => {
   const menuRef = useRef(null);
   const headerRef = useRef(null);
   const recipeTotalQuantity = useSelector(
@@ -97,7 +89,7 @@ const Header = ({ layout }) => {
     <header className="header" ref={headerRef}>
       <nav className="container">
         <div className="nav__wrapper flex items-center justify-between">
-          <div className="w-32">
+          <div className="w-32 cursor-pointer" onClick={() => setStart(true)}>
             <img src={logo} alt="logo" />
           </div>
 
@@ -108,6 +100,9 @@ const Header = ({ layout }) => {
                 <NavLink
                   to={item.path}
                   key={index}
+                  onClick={
+                    item.display === "Cook" ? () => setStart(true) : null
+                  }
                   className={(navClass) =>
                     navClass.isActive ? "active__menu" : ""
                   }

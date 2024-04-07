@@ -50,7 +50,7 @@ const recipeCartSlice = createSlice({
           id: newItem.id,
           name: newItem.name,
           image: newItem.image,
-          price: newItem.price,
+          price: newItem.price.toFixed(2),
           quantity: 1,
           totalPrice: newItem.price,
         });

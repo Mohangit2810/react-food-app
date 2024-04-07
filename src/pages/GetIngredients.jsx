@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import { environment } from "../environments/environment";
 import "../styles/search.css";
 // import ingResults from "../assets/fake-data/ingredientResults";
 import IngredientCard from "../components/UI/product-card/IngredientCard";
@@ -9,7 +10,7 @@ function GetIngredients() {
   const [ingredientName, setIngredientName] = useState(
     JSON.parse(localStorage.getItem("ingredientName")) || "banana"
   );
-  const apiKey = "585107672c1b407e816e2d9fe6e7a271";
+  const apiKey = environment.apiKey;
   useEffect(() => {
     localStorage.setItem("ingredientName", JSON.stringify(ingredientName));
 
@@ -30,10 +31,10 @@ function GetIngredients() {
       }
     }
     fetchData();
-  }, [ingredientName]);
+  }, [ingredientName, apiKey]);
   return (
     <div>
-      <div className="searchBox mx-auto ">
+      <div className="searchBox mx-auto my-6">
         <input
           className="searchInput"
           type="text"

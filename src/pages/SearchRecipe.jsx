@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import "../styles/search.css";
 import { Link } from "react-router-dom";
+import { environment } from "../environments/environment";
 
 function SearchRecipe({ handleRecipeId, cuisine }) {
   const [recipeResults, setrecipeResults] = useState([]);
   const [recipeName, setRecipeName] = useState("");
-  const apiKey = "585107672c1b407e816e2d9fe6e7a271";
+  const apiKey = environment.apiKey;
   useEffect(() => {
     async function fetchData() {
       try {
@@ -25,7 +26,7 @@ function SearchRecipe({ handleRecipeId, cuisine }) {
       }
     }
     fetchData();
-  }, [recipeName, cuisine]);
+  }, [recipeName, cuisine, apiKey]);
 
   return (
     <div>

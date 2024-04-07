@@ -28,8 +28,11 @@ const categoryData = [
 
 function RecipeCategory({ handleCuisine }) {
   return (
-    <div className="container mx-auto">
-      <h2 className="mb-6">Check out our Popular Recipe Categories !!</h2>
+    <div className="container mx-auto mt-24">
+      <h2 className="mb-6 text-center">
+        Check out our <span className="text-[#ff5f00]">Popular Recipe</span>{" "}
+        Categories !!
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {categoryData.map((item, index) => (
           <div

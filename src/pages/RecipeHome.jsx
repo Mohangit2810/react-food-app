@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import Helmet from "../components/Helmet/Helmet.jsx";
 
-import heroImg from "../assets/images/hero.png";
 import "../styles/hero-section.css";
 
 import { Link } from "react-router-dom";
@@ -26,9 +25,7 @@ import foodCategoryImg01 from "../assets/images/hamburger.png";
 import foodCategoryImg02 from "../assets/images/pizza.png";
 import foodCategoryImg03 from "../assets/images/bread.png";
 
-import whyImg from "../assets/images/location.png";
-
-import networkImg from "../assets/images/network.png";
+import networkImg from "../assets/images/recipe-testimonial.png";
 
 import TestimonialSlider from "../components/UI/slider/TestimonialSlider.jsx";
 
@@ -51,63 +48,66 @@ const featureData = [
   },
 ];
 
-const RecipeHome = ({ handleCuisine, handleRecipeId }) => {
+const RecipeHome = ({ handleCuisine, handleRecipeId, layout }) => {
   const [category, setCategory] = useState("");
   const [allProducts, setAllProducts] = useState(recipeHome);
 
   return (
     <Helmet title="Home">
-      <section id="hero_section">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="col-span-1 md:col-span-1">
-              <div className="hero__content">
-                <h5 className="mb-3">Easy way to Cook at your Home!</h5>
-                <h1 className="mb-4 hero__title">
-                  <span>HUNGRY?</span> Just wait <br /> Recipe at
-                  <span> your door</span>
-                </h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-                  magni delectus tenetur autem, sint veritatis!
-                </p>
-                <div className="hero__btns flex items-center gap-5 mt-4">
-                  <button className="order__btn flex items-center justify-between">
-                    Order now <i className="ri-arrow-right-s-line"></i>
-                  </button>
-                  <button className="all__foods-btn">
-                    <Link to="/foods">See all foods</Link>
-                  </button>
-                </div>
-                <div className="hero__service flex items-center gap-5 mt-5">
-                  <p className="flex items-center gap-2">
-                    <span className="shipping__icon">
-                      <i className="ri-car-line"></i>
-                    </span>{" "}
-                    No shipping charge
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="shipping__icon">
-                      <i className="ri-shield-check-line"></i>
-                    </span>{" "}
-                    100% secure checkout
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-span-1 md:col-span-1">
-              <div className="hero__img">
-                <img src={heroImg} alt="hero-img" className="w-full" />
-              </div>
+      {/*-------------------- Hero Section ------------------------*/}
+      <section id="hero_section" className="!bg-hero ">
+        <div className="container flex items-center justify-center">
+          <div className="hero__content mt-20 md:mt-2 flex flex-col items-center">
+            <h5 className="mb-3 text-white">Welcome to Our Feastify!</h5>
+            <h1 className="mb-4 hero__title text-white text-center">
+              <span>Delicious</span> dishes,
+              <br /> that you can cook <span>youself</span>!
+            </h1>
+            <p>
+              Discover the best foods from around the world and enjoy them in
+              your kitchen!
+            </p>
+            <Link to="/foods">
+              <button className="flex gap-6 items-center justify-center text-white bg-[#ff5f00] hover:text-[#ff5f00] hover:bg-white  font-medium rounded-full text-xl font-bold px-5 py-2.5 text-center me-2 mb-2 mt-4 transition-all ease-in-out delay-200  ">
+                See all Recipes
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 64 64"
+                >
+                  <path d="M 49.011719 20.876953 A 1.0001 1.0001 0 0 0 48.15625 22.423828 C 48.15625 22.423828 49.310646 24.245605 51.173828 26.310547 C 52.725124 28.029829 54.858354 29.800168 57.259766 31.027344 C 53.445228 34.053454 50.758235 36.490715 48.492188 39.095703 C 49.157266 35.776356 50.7333 33.6417 52.65625 31.71875 A 1.0001 1.0001 0 0 0 51.949219 30.011719 L 4.9492188 30.011719 A 1.0001 1.0001 0 1 0 4.9492188 32.011719 L 49.736328 32.011719 C 47.780968 34.419832 46.238103 37.49908 46.136719 42.089844 A 1.0001 1.0001 0 0 0 47.953125 42.689453 C 50.825054 38.634737 53.794426 36.280613 59.621094 31.671875 A 1.0001 1.0001 0 0 0 59.337891 29.947266 C 56.830218 29.047897 54.405771 26.907511 52.658203 24.970703 C 50.910636 23.033895 49.84375 21.351562 49.84375 21.351562 A 1.0001 1.0001 0 0 0 49.011719 20.876953 z"></path>
+                </svg>
+              </button>
+            </Link>
+
+            <div className="hero__service flex items-center gap-5 mt-5">
+              <p className="flex items-center gap-2">
+                <span className="shipping__icon">
+                  <i className="ri-restaurant-line"></i>
+                </span>{" "}
+                Easy to cook
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="shipping__icon">
+                  <i className="ri-knife-line"></i>
+                </span>{" "}
+                Order Ingredients
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/*-------------------- Category Section ------------------------*/}
       <section className="pt-0 recipeCategory">
         <RecipeCategory handleCuisine={handleCuisine} />
       </section>
 
+      {/*-------------------- Feature Section ------------------------*/}
       <section>
         <div className="container mx-auto">
           <div className="text-center">
@@ -144,6 +144,7 @@ const RecipeHome = ({ handleCuisine, handleRecipeId }) => {
         </div>
       </section>
 
+      {/*-------------------- Popular Recipe Section ------------------------*/}
       <section>
         <div className="container mx-auto">
           <div className="text-center">
@@ -242,6 +243,7 @@ const RecipeHome = ({ handleCuisine, handleRecipeId }) => {
         </div>
       </section>
 
+      {/*-------------------- Popular Ingredients Section ------------------------*/}
       <section className="pt-0">
         <div className="container mx-auto">
           <div className="text-center mb-5">
@@ -256,52 +258,51 @@ const RecipeHome = ({ handleCuisine, handleRecipeId }) => {
         </div>
       </section>
 
-      <section className="why__choose-us">
+      {/*-------------------- Why Choose Us Section ------------------------*/}
+      <section className="why__choose-us bg-whyRecipe bg-cover">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="col-span-1 md:col-span-1"></div>
             <div className="col-span-1 md:col-span-1">
-              <img src={whyImg} alt="why-tasty-treat" className="w-full" />
-            </div>
-            <div className="col-span-1 md:col-span-1">
-              <div className="why__tasty-treat">
-                <h2 className="tasty__treat-title mb-4">
-                  Why <span>Tasty Treat?</span>
+              <div className="why__feastify">
+                <h2 className="feastify-title text-white mb-4">
+                  Why <span className="text-[#ff5f00]">Feastify?</span>
                 </h2>
-                <p className="tasty__treat-desc">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorum, minus. Tempora reprehenderit a corporis velit,
-                  laboriosam vitae ullam, repellat illo sequi odio esse iste
-                  fugiat dolor, optio incidunt eligendi deleniti!
+                <p className="feastify-desc text-white leading-loose">
+                  Feastify is your one-stop solution for all your culinary
+                  adventures. We offer a wide range of recipes from various
+                  cuisines, all curated and tested by our team of food experts.
+                  Our platform is designed to be user-friendly, making it easy
+                  for anyone to find and follow our recipes. Choose Feastify,
+                  because we make cooking a joy, not a chore.
                 </p>
                 <ul className="mt-4 list-disc pl-4">
-                  <li className="choose__us-title">
+                  <li className="font-bold text-[#ff5f00] mb-4">
                     <p className="d-flex items-center gap-2">
                       <i className="ri-checkbox-circle-line"></i> Fresh and
-                      tasty foods
+                      tasty Recipes
                     </p>
-                    <p className="choose__us-desc">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quia, voluptatibus.
-                    </p>
-                  </li>
-                  <li className="choose__us-title">
-                    <p className="d-flex items-center gap-2">
-                      <i className="ri-checkbox-circle-line"></i> Quality
-                      support
-                    </p>
-                    <p className="choose__us-desc">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
+                    <p className="text-white">
+                      Our recipes use fresh ingredients for the best taste
+                      experience.
                     </p>
                   </li>
-                  <li className="choose__us-title">
+                  <li className="font-bold text-[#ff5f00] mb-4">
                     <p className="d-flex items-center gap-2">
-                      <i className="ri-checkbox-circle-line"></i> Order from any
-                      location
+                      <i className="ri-checkbox-circle-line"></i> Easy to follow
                     </p>
-                    <p className="choose__us-desc">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Qui, earum.
+                    <p className="text-white">
+                      Our recipes are easy to follow, even for beginners.
+                    </p>
+                  </li>
+                  <li className="font-bold text-[#ff5f00] mb-4">
+                    <p className="d-flex items-center gap-2">
+                      <i className="ri-checkbox-circle-line"></i> Order missing
+                      ingredients!
+                    </p>
+                    <p className="text-white">
+                      Don&apos;t have all the ingredients? No problem! Order
+                      them directly from our platform.
                     </p>
                   </li>
                 </ul>
@@ -311,8 +312,9 @@ const RecipeHome = ({ handleCuisine, handleRecipeId }) => {
         </div>
       </section>
 
+      {/*-------------------- Testimonial Section ------------------------*/}
       <section>
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="col-span-1 md:col-span-1">
               <div className="testimonial">
@@ -321,15 +323,14 @@ const RecipeHome = ({ handleCuisine, handleRecipeId }) => {
                   What our <span>customers</span> are saying
                 </h2>
                 <p className="testimonial__desc">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Distinctio quasi qui minus quos sit perspiciatis inventore
-                  quis provident placeat fugiat!
+                  Don&apos;t just take our word for it. Here&apos;s what our
+                  customers have to say about their experience with Feastify.
                 </p>
-                <TestimonialSlider />
+                <TestimonialSlider layout={layout} />
               </div>
             </div>
-            <div className="col-span-1 md:col-span-1">
-              <img src={networkImg} alt="testimonial-img" className="w-full" />
+            <div className="col-span-1 md:col-span-1 flex justify-center">
+              <img src={networkImg} alt="testimonial-img" className="w-3/5" />
             </div>
           </div>
         </div>

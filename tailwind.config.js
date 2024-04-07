@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "hero-image": "url('/assets/images/food-wars-4.jpg')",
+        hero: "url('/src/assets/images/recipe-bg.jpg')",
+        whyRecipe: "url('/src/assets/images/why-recipe.jpg')",
       },
     },
   },

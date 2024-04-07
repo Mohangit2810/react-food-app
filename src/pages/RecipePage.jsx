@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 // import similarRecipe from "../assets/fake-data/similarRecipe";
+import { environment } from "../environments/environment";
 import "../styles/recipePage.css";
 import { Link } from "react-router-dom";
 import { cartActions } from "../store/recipe-cart/recipeCartSlice";
@@ -15,7 +16,18 @@ function RecipePage({ recipeId, handleRecipeId }) {
   const [categories, setCategories] = useState([]);
   const [similarRecipes, setSimilarRecipes] = useState([]);
   const [recipeCardUrl, setRecipeCardUrl] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    let timer;
+    if (showPopup) {
+      timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 3000);
+    }
+    return () => clearTimeout(timer);
+  }, [showPopup]);
 
   const togglePacked = (id) => {
     setIngredientsList(
@@ -26,7 +38,7 @@ function RecipePage({ recipeId, handleRecipeId }) {
       )
     );
   };
-  const apiKey = "585107672c1b407e816e2d9fe6e7a271";
+  const apiKey = environment.apiKey;
   const sendNotPacked = () => {
     const list = ingredientsList.filter(
       (ingredient) => ingredient.packed === false
@@ -52,6 +64,7 @@ function RecipePage({ recipeId, handleRecipeId }) {
             price: ingPrice.value,
           })
         );
+        setShowPopup(true);
       } catch (error) {
         console.error(error);
       }
@@ -125,12 +138,12 @@ function RecipePage({ recipeId, handleRecipeId }) {
       }
     }
     fetchData();
-  }, [recipeId]);
+  }, [recipeId, apiKey]);
 
-  return (
+  return recipeId ? (
     <div className="container">
       <h2 className="text-center mb-12">Recipes</h2>
-      <div className="grid grid-cols-3 gap-12 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
         <div className="recipe-container col-span-2 ">
           <h1 className="text-left mb-8">{recipeInfo.title}</h1>
           <img
@@ -144,8 +157,16 @@ function RecipePage({ recipeId, handleRecipeId }) {
             dangerouslySetInnerHTML={{ __html: recipeInfo.summary }}
           />
           <h2 className="text-left mt-12 mb-6">Ingredients</h2>
-          <div onClick={sendNotPacked}>click here</div>
-          <ul className="grid grid-cols-2 gap-4">
+          <div className="mb-6">
+            <p>Don&apos;t have the ingredients? Click below to order !!</p>
+            <button
+              onClick={sendNotPacked}
+              className="bg-[#df2020] text-white p-2 rounded-lg mt-4"
+            >
+              Order Ingredients
+            </button>
+          </div>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {ingredientsList.map((ingredient, index) => (
               <li className="flex gap-4 items-center justify-start" key={index}>
                 <label className="checkContainer">
@@ -195,7 +216,9 @@ function RecipePage({ recipeId, handleRecipeId }) {
           <h3 className="my-12 mb-8">
             Liked the Recipe? Click here to download the Recipe Card !!
             <a href={recipeCardUrl} target="_blank">
-              click here
+              <button className=" bg-[#df2020] text-white p-2 rounded-lg mt-4 block">
+                Download Recipe Card
+              </button>
             </a>
           </h3>
         </div>
@@ -471,10 +494,10 @@ function RecipePage({ recipeId, handleRecipeId }) {
         <div className="similar-recipes col-span-full w-full">
           <h1 className="text-left mb-8">Similar Recipes</h1>
 
-          <div className="similar-container flex gap-4 ">
+          <div className="similar-container grid grid-cols-1 md:grid-cols-4 gap-4 ">
             {similarRecipes.map((recipe) => (
               <Link
-                className="w-[400px]"
+                className="w-[300px] ml-auto md:w-[400px]"
                 to="/recipePage"
                 key={recipe.id}
                 onClick={() => handleRecipeId(recipe.id)}
@@ -512,6 +535,20 @@ function RecipePage({ recipeId, handleRecipeId }) {
           </div>
         </div>
       </div>
+      {showPopup && (
+        <div className={`popup ${showPopup ? "active" : ""}`}>
+          <div className="popup-content">
+            <span className="close" onClick={() => setShowPopup(false)}>
+              &times;
+            </span>
+            <p>Item has been added to cart!</p>
+          </div>
+        </div>
+      )}
+    </div>
+  ) : (
+    <div className="container">
+      <h1 className="text-center">No Recipe Found</h1>
     </div>
   );
 }

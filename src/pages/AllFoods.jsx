@@ -82,7 +82,7 @@ const AllFoods = () => {
                 previousLabel={"Prev"}
                 nextLabel={"Next"}
                 containerClassName="paginationBttns"
-                activeClassName="bg-blue-500 text-white px-3 py-2 rounded-md mx-1"
+                activeClassName="active-page text-white px-3 py-2 rounded-md mx-1"
                 previousClassName="px-3 py-2 rounded-md mx-1"
                 nextClassName="px-3 py-2 rounded-md mx-1"
                 disabledClassName="opacity-50"

@@ -48,7 +48,7 @@ const Register = () => {
               </div>
               <button
                 type="submit"
-                className="addTOCart__btn bg-orange-600 w-1/6"
+                className="addTOCart__btn bg-orange-600 w-1/3  md:w-1/6"
               >
                 Sign Up
               </button>

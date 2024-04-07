@@ -1,8 +1,8 @@
 /*hover effect*/
 .cartButton:hover {
   color: #fff;
-  background-color: #ef4343;
-  box-shadow: rgba(239, 67, 67, 0.5) 0 10px 20px;
+  background-color: #bf5416;
+  box-shadow: #bf541680 0 10px 20px;
   border-radius: 6px;
   transition: all 0.3s ease-in-out;
   /* transform: translateY(-3px); */
@@ -16,8 +16,8 @@
 /*hover effect*/
 .popButton:hover {
   color: #fff;
-  background-color: #7c2020;
-  box-shadow: #7c202080 0 10px 20px;
+  background-color: #98491b;
+  box-shadow: #98491b80 0 10px 20px;
   border-radius: 6px;
   transform: translateY(-3px);
   transition: all 0.2s ease-in-out;

@@ -74,7 +74,7 @@
   top: 0;
   left: 0;
   background: #fff;
-  z-index: 99999;
+  z-index: 999;
   box-shadow: 5px 5px 15px -5px #fde4e4;
 }
 
@@ -143,5 +143,8 @@
   }
   .logo h5 {
     margin-top: -55px;
+  }
+  .cart__badge {
+    top: 20px;
   }
 }

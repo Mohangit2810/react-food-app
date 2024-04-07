@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import Helmet from "../components/Helmet/Helmet.jsx";
@@ -101,7 +102,7 @@ const Home = () => {
               love
             </p>
             <Link to="/foods">
-              <button className="flex gap-6 items-center justify-center text-white bg-[#ff5f00] hover:text-[#ff5f00] hover:bg-white  font-medium rounded-full text-xl font-bold px-5 py-2.5 text-center me-2 mb-2 mt-4">
+              <button className="flex gap-6 items-center justify-center text-white bg-[#ff5f00] hover:text-[#ff5f00] hover:bg-white  font-medium rounded-full text-xl font-bold px-5 py-2.5 text-center me-2 mb-2 mt-4 transition-all ease-in-out delay-200  ">
                 See all foods
                 <svg
                   className="fill-current"

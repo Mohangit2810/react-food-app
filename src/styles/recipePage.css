@@ -80,6 +80,7 @@
   background-color: red;
   transition: 300ms ease-in-out;
   pointer-events: none;
+  /* transform: rotate(45deg); */
 }
 
 .strike-through.example-1.packed::after {

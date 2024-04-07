@@ -5,6 +5,7 @@ import { foodCartActions } from "../store/shopping-cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 function Confirmation({ shippingInfo, layout }) {
+  console.log(layout);
   const recipeCartItems = useSelector(
     (state) => state.recipeCart.recipeCartItems
   );
@@ -32,7 +33,7 @@ function Confirmation({ shippingInfo, layout }) {
   }
 
   return (
-    <div className="max-w-full mx-auto py-6 px-20 bg-white shadow-lg rounded-lg">
+    <div className="max-w-full mx-auto py-6 px-8 md:px-20 bg-white shadow-lg rounded-lg">
       <h2 className="text-3xl font-bold text-green-600 mb-4">
         Yay! Your order has been placed Successfully!
       </h2>
@@ -69,7 +70,7 @@ function Confirmation({ shippingInfo, layout }) {
                 {(layout === "Food" ? recipeCartItems : cartItems).map(
                   (item) => (
                     <tr key={item.id}>
-                      <td className="px-4 py-2 text-center">
+                      <td className="px-4 py-2 text-center flex justify-center">
                         <img
                           src={
                             item.image.length < 20
@@ -128,12 +129,17 @@ function Confirmation({ shippingInfo, layout }) {
               Your Billing Summary
             </h5>
             <p className="text-gray-700">
-              Cart Total: ${layout === "Food" ? recipeTotalAmount : totalAmount}
+              Cart Total: $
+              {layout === "Food"
+                ? recipeTotalAmount.toFixed(2)
+                : totalAmount.toFixed(2)}
             </p>
-            <p className="text-gray-700">Shipping Cost: $30</p>
+            <p className="text-gray-700">Shipping Cost: $30.00</p>
             <p className="text-gray-700">
               Total Amount: $
-              {layout === "Food" ? recipeTotalAmount + 30 : totalAmount + 30}
+              {layout === "Food"
+                ? recipeTotalAmount.toFixed(2) + 30
+                : totalAmount.toFixed(2) + 30}
             </p>
           </div>
         </div>

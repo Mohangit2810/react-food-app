@@ -13,20 +13,24 @@ const Layout = () => {
   const history = useNavigate();
   const [layout, setLayout] = useState("Food");
   const [start, setStart] = useState(true);
+
   const showCart = useSelector((state) => state.cartUi.cartIsVisible);
+
   function handleLayout(layoutName) {
     setLayout(layoutName);
   }
+
   function goToLayout(layoutName) {
     setLayout(layoutName);
     setStart(false);
     history(layoutName === "Food" ? "/recipeHome" : "/home");
   }
+
   return start ? (
     <Start goToLayout={goToLayout} />
   ) : (
-    <div>
-      <Header layout={layout} setLayout={setLayout} />
+    <div className="relative">
+      <Header layout={layout} setLayout={setLayout} setStart={setStart} />
 
       {showCart ? layout === "Food" ? <RecipeCart /> : <Carts /> : null}
 
@@ -37,6 +41,7 @@ const Layout = () => {
           goToLayout={goToLayout}
         />
       </div>
+
       <Footer />
     </div>
   );

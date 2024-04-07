@@ -37,8 +37,10 @@ function RecipeCart() {
               </table>
             )}
 
-            <div className="mt-4">
-              <h6 className="mb-2">Subtotal: ${recipeTotalAmount}</h6>
+            <div className="mt-4 mb-8">
+              <h6 className="mb-2">
+                Subtotal: ${recipeTotalAmount.toFixed(2)}
+              </h6>
               <p className="mb-4">
                 Taxes and shipping will calculate at checkout
               </p>

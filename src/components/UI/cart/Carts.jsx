@@ -4,6 +4,7 @@ import CartItem from "./CartItem";
 
 import { useDispatch, useSelector } from "react-redux";
 import { cartUiActions } from "../../../store/shopping-cart/cartUiSlice";
+import { foodCartActions } from "../../../store/shopping-cart/cartSlice";
 
 import "../../../styles/shopping-cart.css";
 
@@ -15,6 +16,12 @@ const Carts = () => {
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
   };
+
+  const clearCart = () => {
+    dispatch(foodCartActions.clearCart());
+    dispatch(cartUiActions.toggle());
+  };
+
   return (
     <div className="cart__container">
       <ListGroup className="cart">
@@ -34,15 +41,22 @@ const Carts = () => {
           )}
         </div>
 
-        <div className="cart__bottom flex items-center justify-between">
+        <div className="cart__bottom flex flex-col md:flex-row items-center justify-between pb-4">
           <h6>
-            Subtotal : <span>${totalAmount}</span>
+            Subtotal : <span>${totalAmount.toFixed(2)}</span>
           </h6>
-          <button>
-            <Link to="/checkout" onClick={toggleCart}>
-              Checkout
-            </Link>
-          </button>
+          <div className="flex gap-4">
+            <button>
+              <Link to="/home" onClick={clearCart}>
+                Clear Cart
+              </Link>
+            </button>
+            <button>
+              <Link to="/checkout" onClick={toggleCart}>
+                Checkout
+              </Link>
+            </button>
+          </div>
         </div>
       </ListGroup>
     </div>

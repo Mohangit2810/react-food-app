@@ -111,21 +111,21 @@ function RecipeCheckout({ addShippingInfo }) {
                   type="submit"
                   className="addTOCart__btn px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                 >
-                  Payment
+                  Place Order
                 </button>
               </form>
             </div>
 
             <div className="checkout__bill">
               <h6 className="flex items-center justify-between mb-3">
-                Subtotal: <span>${cartTotalAmount}</span>
+                Subtotal: <span>${cartTotalAmount.toFixed(2)}</span>
               </h6>
               <h6 className="flex items-center justify-between mb-3">
-                Shipping: <span>${shippingCost}</span>
+                Shipping: <span>${shippingCost.toFixed(2)}</span>
               </h6>
               <div className="checkout__total">
                 <h5 className="flex items-center justify-between">
-                  Total: <span>${totalAmount}</span>
+                  Total: <span>${totalAmount.toFixed(2)}</span>
                 </h5>
               </div>
             </div>

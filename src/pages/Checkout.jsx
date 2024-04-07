@@ -107,9 +107,9 @@ const Checkout = ({ addShippingInfo }) => {
                 </div>
                 <button
                   type="submit"
-                  className="addTOCart__btn px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                  className="addTOCart__btn px-4 py-2 bg-[#bf1616] text-white rounded hover:bg-[#ff4d4d] transition duration-300 ease-in-out"
                 >
-                  Payment
+                  Place Order
                 </button>
               </form>
             </div>

@@ -141,7 +141,7 @@ section {
   width: 100%;
   padding: 10px;
   background-color: #00000099;
-  backdrop-filter: blur(5px);
+  /* backdrop-filter: blur(5px); */
   border-radius: 5px;
 }
 
@@ -168,4 +168,47 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* popup.css */
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  opacity: 0;
+  z-index: 1000;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.close {
+  cursor: pointer;
+  color: #999;
+  font-size: 20px;
+}
+
+.close:hover {
+  color: #666;
 }

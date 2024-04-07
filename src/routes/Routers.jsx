@@ -70,6 +70,7 @@ const Routers = ({ layout, goToLayout }) => {
           <RecipeHome
             handleCuisine={handleCuisine}
             handleRecipeId={handleRecipeId}
+            layout={layout}
           />
         }
       />
@@ -104,7 +105,7 @@ const Routers = ({ layout, goToLayout }) => {
       />
       <Route
         path="/confirmation"
-        element={<Confirmation shippingInfo={shippingInfo} />}
+        element={<Confirmation shippingInfo={shippingInfo} layout={layout} />}
       />
     </Routes>
   );

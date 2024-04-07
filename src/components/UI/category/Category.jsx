@@ -1,29 +1,29 @@
 import { Link } from "react-router-dom";
-import categoryImg01 from "../../../assets/images/category-01.png";
-import categoryImg02 from "../../../assets/images/category-02.png";
-import categoryImg03 from "../../../assets/images/category-03.png";
-import categoryImg04 from "../../../assets/images/category-04.png";
+import fastFood from "../../../assets/categories/cat-fast-food.png";
+import pizza from "../../../assets/categories/cat-pizza.png";
+import asianFood from "../../../assets/categories/cat-asian-food.png";
+import bread from "../../../assets/categories/cat-bread.png";
 
 import "../../../styles/category.css";
 
 const categoryData = [
   {
     display: "Fastfood",
-    imgUrl: categoryImg01,
+    imgUrl: fastFood,
   },
   {
     display: "Pizza",
-    imgUrl: categoryImg02,
+    imgUrl: pizza,
   },
 
   {
     display: "Asian Food",
-    imgUrl: categoryImg03,
+    imgUrl: asianFood,
   },
 
   {
-    display: "Row Meat",
-    imgUrl: categoryImg04,
+    display: "Bread",
+    imgUrl: bread,
   },
 ];
 
@@ -40,11 +40,11 @@ const Category = () => {
           <div className="mb-4" key={index}>
             <Link to="/foods">
               <div className="category__item flex items-center gap-3">
-                <div className="category__img">
+                <div className="category__img flex justify-center">
                   <img
                     src={item.imgUrl}
                     alt="category__item"
-                    className="w-full"
+                    className="w-1/2"
                   />
                 </div>
                 <h6 className="text-lg font-medium">{item.display}</h6>
