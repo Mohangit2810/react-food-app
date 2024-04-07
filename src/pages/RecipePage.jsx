@@ -494,10 +494,10 @@ function RecipePage({ recipeId, handleRecipeId }) {
         <div className="similar-recipes col-span-full w-full">
           <h1 className="text-left mb-8">Similar Recipes</h1>
 
-          <div className="similar-container grid grid-cols-1 md:grid-cols-4 gap-4 ">
+          <div className="similar-container grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
             {similarRecipes.map((recipe) => (
               <Link
-                className="w-[300px] ml-auto md:w-[400px]"
+                className="w-[300px] ml-auto"
                 to="/recipePage"
                 key={recipe.id}
                 onClick={() => handleRecipeId(recipe.id)}
