@@ -11,6 +11,10 @@ import Category from "../components/UI/category/Category.jsx";
 
 import "../styles/home.css";
 
+import whyFeast from "../assets/images/why-feast.png";
+
+import testimonial from "../assets/images/testimonial.png";
+
 import featureImg01 from "../assets/images/service-01.png";
 import featureImg02 from "../assets/images/service-02.png";
 import featureImg03 from "../assets/images/service-03.png";
@@ -239,7 +243,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="col-span-1 md:col-span-1">
               <img
-                src="src/assets/images/why-feast.png"
+                src={whyFeast}
                 alt="why-tasty-treat"
                 className="w-3/4 ml-16"
               />
@@ -330,11 +334,7 @@ const Home = () => {
               </div>
             </div>
             <div className="col-span-1 md:col-span-1">
-              <img
-                src="src/assets/images/testimonial.png"
-                alt="testimonial-img"
-                className="w-full"
-              />
+              <img src={testimonial} alt="testimonial-img" className="w-full" />
             </div>
           </div>
         </div>

@@ -230,7 +230,7 @@ function RecipePage({ recipeId, handleRecipeId }) {
                 className="flex flex-col justify-center items-center gap-3 p-2 shadow rounded"
                 key={index}
               >
-                <img src={`src/assets/categories/${type}.svg`} alt="svg" />
+                <img src={`/categories/${type}.svg`} alt="svg" />
                 <p className="first-letter:uppercase">{type}</p>
               </li>
             ))}

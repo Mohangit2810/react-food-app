@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import fastFood from "../../../assets/categories/cat-fast-food.png";
-import pizza from "../../../assets/categories/cat-pizza.png";
-import asianFood from "../../../assets/categories/cat-asian-food.png";
-import bread from "../../../assets/categories/cat-bread.png";
+import fastFood from "/categories/cat-fast-food.png";
+import pizza from "/categories/cat-pizza.png";
+import asianFood from "/categories/cat-asian-food.png";
+import bread from "/categories/cat-bread.png";
 
 import "../../../styles/category.css";
 

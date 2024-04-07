@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import "../../../styles/category.css";
-import indianCuisine from "../../../assets/categories/indian-cuisine.png";
-import japaneseCuisine from "../../../assets/categories/japanese-cuisine.png";
-import italianCuisine from "../../../assets/categories/italian-cuisine.png";
-import chineseCuisine from "../../../assets/categories/chinese-cuisine.png";
+import indianCuisine from "/categories/indian-cuisine.png";
+import japaneseCuisine from "/categories/japanese-cuisine.png";
+import italianCuisine from "/categories/italian-cuisine.png";
+import chineseCuisine from "/categories/chinese-cuisine.png";
 import { Link } from "react-router-dom";
 const categoryData = [
   {

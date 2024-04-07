@@ -1,4 +1,8 @@
 /* eslint-disable react/prop-types */
+
+import startOrder from "../assets/images/start-order.png";
+import startCook from "../assets/images/start-cook.png";
+
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 
@@ -30,7 +34,7 @@ function Start({ goToLayout }) {
       <div className="relative h-1/2 md:h-full w-full bg-[#0088D1] gap-6 px-16 flex items-center justify-center">
         <img
           className="absolute z-3 w-[65%] md:w-full max-[600px]:top-[16px]  md:bottom-1/4 lg:bottom-0 left-[-22px] md:left-8  rotate-[320deg] md:rotate-0"
-          src="src/assets/images/start-order.png"
+          src={startOrder}
           alt="order"
         />
         <animated.div ref={ref} style={orderProps}>
@@ -67,7 +71,7 @@ function Start({ goToLayout }) {
       <div className="relative h-1/2 md:h-full w-full bg-[#FFA000] px-16 flex items-center justify-center">
         <img
           className="absolute z-3 w-2/5 lg:w-[45%] bottom-[-11px] md:top-1/4 xl:-top-8 left-[60%] md:left-1/3 rotate-45 md:rotate-90"
-          src="src/assets/images/start-cook.png"
+          src={startCook}
           alt="cook"
         />
         <animated.div ref={ref} style={cookProps}>
