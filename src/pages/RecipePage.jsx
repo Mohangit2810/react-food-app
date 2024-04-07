@@ -240,86 +240,78 @@ function RecipePage({ recipeId, handleRecipeId }) {
             <li className="w-full flex gap-2 justify-start items-center p-4 rounded-lg shadow-md bg-white">
               <img
                 className="w-6 h-6"
-                src="src/assets/additionalInfo/vegetarian.svg"
+                src="/additionalInfo/vegetarian.svg"
                 alt="vegetarian"
               />
               <span className="text-gray-700 font-semibold">Vegetarian :</span>
               <img
                 className="w-6 h-6"
-                src={`src/assets/${
-                  recipeInfo.vegetarian ? "true" : "false"
-                }.svg`}
+                src={`/${recipeInfo.vegetarian ? "true" : "false"}.svg`}
                 alt="vegetarian"
               />
             </li>
             <li className="w-full flex gap-2 justify-start items-center p-4 rounded-lg shadow-md bg-white">
               <img
                 className="w-6 h-6"
-                src="src/assets/additionalInfo/vegan.svg"
+                src="/additionalInfo/vegan.svg"
                 alt="vegetarian"
               />
               <span className="text-gray-700 font-semibold">Vegan :</span>
               <img
                 className="w-6 h-6"
-                src={`src/assets/${recipeInfo.vegan ? "true" : "false"}.svg`}
+                src={`/${recipeInfo.vegan ? "true" : "false"}.svg`}
                 alt="vegan"
               />
             </li>
             <li className="w-full flex gap-2 justify-start items-center p-4 rounded-lg shadow-md bg-white">
               <img
                 className="w-6 h-6"
-                src="src/assets/additionalInfo/glutenFree.svg"
+                src="/additionalInfo/glutenFree.svg"
                 alt="vegetarian"
               />
               <span className="text-gray-700 font-semibold">Gluten Free :</span>
               <img
                 className="w-6 h-6"
-                src={`src/assets/${
-                  recipeInfo.glutenFree ? "true" : "false"
-                }.svg`}
+                src={`/${recipeInfo.glutenFree ? "true" : "false"}.svg`}
                 alt="glutenFree"
               />
             </li>
             <li className="w-full flex gap-2 justify-start items-center p-4 rounded-lg shadow-md bg-white">
               <img
                 className="w-6 h-6"
-                src="src/assets/additionalInfo/diaryFree.svg"
+                src="/additionalInfo/diaryFree.svg"
                 alt="vegetarian"
               />
               <span className="text-gray-700 font-semibold">Diary Free :</span>
               <img
                 className="w-6 h-6"
-                src={`src/assets/${
-                  recipeInfo.diaryFree ? "true" : "false"
-                }.svg`}
+                src={`/${recipeInfo.diaryFree ? "true" : "false"}.svg`}
                 alt="diaryFree"
               />
             </li>
             <li className="w-full flex gap-2 justify-start items-center p-4 rounded-lg shadow-md bg-white">
               <img
                 className="w-6 h-6"
-                src="src/assets/additionalInfo/healthy.svg"
+                src="/additionalInfo/healthy.svg"
                 alt="vegetarian"
               />
               <span className="text-gray-700 font-semibold">Healthy :</span>
               <img
                 className="w-6 h-6"
-                src={`src/assets/${
-                  recipeInfo.veryHealthy ? "true" : "false"
-                }.svg`}
+                src={`/${recipeInfo.veryHealthy ? "true" : "false"}.svg`}
                 alt="veryHealthy"
               />
             </li>
             <li className="w-full flex gap-2 justify-start items-center p-4 rounded-lg shadow-md bg-white">
               <img
                 className="w-6 h-6"
-                src="src/assets/additionalInfo/cheap.svg"
+                src="/additionalInfo/cheap.svg"
                 alt="vegetarian"
               />
               <span className="text-gray-700 font-semibold">Cheap :</span>
               <img
                 className="w-6 h-6"
-                src={`src/assets/${recipeInfo.cheap ? "true" : "false"}.svg`}
+                src={`/${recipeInfo.cheap ? "true" : "false"}.svg`}
                 alt="cheap"
               />
             </li>
