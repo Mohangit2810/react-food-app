@@ -89,7 +89,10 @@ const Header = ({ layout, setStart }) => {
     <header className="header" ref={headerRef}>
       <nav className="container">
         <div className="nav__wrapper flex items-center justify-between">
-          <div className="w-24 cursor-pointer" onClick={() => setStart(true)}>
+          <div
+            className="w-24 cursor-pointer p-2"
+            onClick={() => setStart(true)}
+          >
             <img src={logo} alt="logo" />
           </div>
 
