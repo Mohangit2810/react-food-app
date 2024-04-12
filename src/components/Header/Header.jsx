@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useRef, useEffect } from "react";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo-black.png";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -89,7 +89,7 @@ const Header = ({ layout, setStart }) => {
     <header className="header" ref={headerRef}>
       <nav className="container">
         <div className="nav__wrapper flex items-center justify-between">
-          <div className="w-32 cursor-pointer" onClick={() => setStart(true)}>
+          <div className="w-24 cursor-pointer" onClick={() => setStart(true)}>
             <img src={logo} alt="logo" />
           </div>
 

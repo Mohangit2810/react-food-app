@@ -1,4 +1,4 @@
-// import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.png";
 
 import "../../styles/footer.css";
 
@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-start">
-            {/* <img src={logo} alt="logo" className="w-32 h-32 mb-4" /> */}
+            <img src={logo} alt="logo" className="w-32 mb-4" />
             <h5 className="text-lg font-bold mb-6">Feastify</h5>
             <p className="text-sm">
               Order food from your favorite restaurants with the Feastify app.
